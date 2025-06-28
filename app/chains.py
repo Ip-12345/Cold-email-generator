@@ -12,7 +12,8 @@ class Chain:
         self.llm=ChatGroq(
         model="llama-3.3-70b-versatile",
         temperature=0,
-        groq_api_key=os.getenv("GROQ_API_KEY")
+        groq_api_key=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,
+        
     # other params...
         )
 
