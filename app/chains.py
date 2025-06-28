@@ -12,7 +12,7 @@ class Chain:
         self.llm=ChatGroq(
         model="llama-3.3-70b-versatile",
         temperature=0,
-        groq_api_key="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",
+        groq_api_key="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",
         
     # other params...
         )
@@ -66,4 +66,4 @@ class Chain:
         return res.content
 
 if __name__ == "__main__":
-    print("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")
+    print("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")
