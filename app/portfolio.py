@@ -37,9 +37,9 @@ class Portfolio:
             host="localhost",
             port=8000,
             tenant="default_tenant",
-            database="default_database",
-            auth_credentials={"username": "admin", "password": "admin"}
+            database="default_database"
         )
+
 
         self.collection = self.chroma_client.get_or_create_collection(name="portfolio")
 
