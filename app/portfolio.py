@@ -23,7 +23,6 @@
 #     def query_links(self, skills):
 #         return self.collection.query(query_texts=skills, n_results=2).get('metadatas', [])
 import chromadb
-from chromadb.api.client import HttpClient
 import uuid
 import pandas as pd
 
@@ -32,8 +31,8 @@ class Portfolio:
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
 
-        # Connect to the running ChromaDB HTTP server
-        self.chroma_client = HttpClient(host="localhost", port=8000)
+        # Connect to the running Chroma DB server
+        self.chroma_client = chromadb.HttpClient(host="localhost", port=8000)
         self.collection = self.chroma_client.get_or_create_collection(name="portfolio")
 
     def load_portfolio(self):
