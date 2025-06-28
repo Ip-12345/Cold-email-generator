@@ -7,10 +7,7 @@ class Portfolio:
         self.file_path=file_path
         self.data=pd.read_csv(file_path)
         from chromadb.config import Settings
-        self.chroma_client = chromadb.Client(Settings(
-            chroma_db_impl="duckdb+parquet",
-            persist_directory=None 
-        ))
+        self.chroma_client = chromadb.PersistentClient('vectorstore')
         self.collection=self.chroma_client.get_or_create_collection(name="portfolio")
 
     def load_portfolio(self):
