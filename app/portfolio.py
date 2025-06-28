@@ -9,7 +9,7 @@ class Portfolio:
         from chromadb.config import Settings
         self.chroma_client = chromadb.Client(Settings(
             chroma_db_impl="duckdb+parquet",
-            persist_directory=None  # In-memory, avoids version issues
+            persist_directory="vectorstore"  # In-memory, avoids version issues
         ))
         self.collection=self.chroma_client.get_or_create_collection(name="portfolio")
 
