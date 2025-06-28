@@ -31,12 +31,12 @@ class Portfolio:
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
 
-        # Connect to the Docker-based Chroma server
+        # Connect to the Chroma Docker server with matching tenant and database
         self.chroma_client = chromadb.HttpClient(
             host="localhost",
             port=8000,
-            tenant="default_tenant",
-            database="default_database"
+            tenant="default_tenant",         # must match the tenant used inside Chroma
+            database="default_database"      # same for database
         )
 
         self.collection = self.chroma_client.get_or_create_collection(name="portfolio")
