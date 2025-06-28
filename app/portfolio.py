@@ -31,7 +31,7 @@ class Portfolio:
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
 
-        # Connect to the running Chroma DB server
+        # Connect to the Docker-based Chroma server
         self.chroma_client = chromadb.HttpClient(
             host="localhost",
             port=8000,
