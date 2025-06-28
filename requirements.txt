@@ -3,5 +3,5 @@ langchain
 langchain-groq
 requests
 python-dotenv
-chromadb
+chromadb==0.4.24
 protobuf==4.23.4
