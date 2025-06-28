@@ -23,20 +23,22 @@
 #     def query_links(self, skills):
 #         return self.collection.query(query_texts=skills, n_results=2).get('metadatas', [])
 import chromadb
-import uuid
+from chromadb.config import Settings
 import pandas as pd
+import uuid
 
 class Portfolio:
     def __init__(self, file_path="app/resource/my_portfolio.csv"):
         self.file_path = file_path
         self.data = pd.read_csv(file_path)
 
-        # Connect to the Chroma Docker server with matching tenant and database
+        # Connect to Chroma server with tenant/db
         self.chroma_client = chromadb.HttpClient(
             host="localhost",
             port=8000,
-            tenant="default_tenant",         # must match the tenant used inside Chroma
-            database="default_database"      # same for database
+            tenant="default_tenant",
+            database="default_database",
+            auth_credentials={"username": "admin", "password": "admin"}
         )
 
         self.collection = self.chroma_client.get_or_create_collection(name="portfolio")
