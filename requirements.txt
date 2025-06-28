@@ -4,3 +4,4 @@ langchain-groq
 requests
 python-dotenv
 chromadb
+protobuf==4.23.4
