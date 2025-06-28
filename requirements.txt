@@ -5,3 +5,5 @@ requests
 python-dotenv
 chromadb==0.4.24
 protobuf==4.23.4
+numpy==1.24.4
+pandas
