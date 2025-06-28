@@ -32,7 +32,13 @@ class Portfolio:
         self.data = pd.read_csv(file_path)
 
         # Connect to the running Chroma DB server
-        self.chroma_client = chromadb.HttpClient(host="localhost", port=8000)
+        self.chroma_client = chromadb.HttpClient(
+            host="localhost",
+            port=8000,
+            tenant="default_tenant",
+            database="default_database"
+        )
+
         self.collection = self.chroma_client.get_or_create_collection(name="portfolio")
 
     def load_portfolio(self):
